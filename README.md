@@ -102,7 +102,7 @@ Accept: application/json
 
 Parameters:
 
-- `:id` *(path)*: ID of the pet object,
+- `:id` _(path)_: ID of the pet object,
   formatted as a 24-character long hexadecimal number.
 
 <details><summary>Responses (click to expand)</summary>

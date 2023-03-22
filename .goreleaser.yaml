@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2023 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+project_name: gocrud
+before:
+  hooks:
+    - go mod download
+    - go generate ./...
+builds:
+  - binary: gocrud
+    env:
+      - CGO_ENABLED=0
+    goarch:
+      - amd64
+    goos:
+      - linux
+    flags:
+      - -trimpath
+    ldflags:
+      - -s
+      - -w
+archives:
+  - name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+      - LICENSE*
+checksum:
+  name_template: checksums.txt
+dockers:
+  - image_templates:
+      - dex4er/gocrud:{{ .Tag }}{{ if .IsSnapshot }}-snapshot{{ end }}
+      - dex4er/gocrud:latest
+    dockerfile: Dockerfile
+    goos: linux
+    goarch: amd64
+    build_flag_templates:
+      - --label=org.opencontainers.image.title={{ .ProjectName }}
+      - --label=org.opencontainers.image.description={{ .ProjectName }}
+      - --label=org.opencontainers.image.url=https://gitlab.com/dex4er/gocrud
+      - --label=org.opencontainers.image.source=https://gitlab.com/dex4er/gocrud
+      - --label=org.opencontainers.image.version={{ .Version }}
+      - --label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}
+      - --label=org.opencontainers.image.revision={{ .FullCommit }}
+      - --label=org.opencontainers.image.licenses=GPL-3.0
