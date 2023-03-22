@@ -87,6 +87,9 @@ Free version of GoReleaser works only with Docker Engine (Pro version with
 Podman too). Our [`Dockerfile`](Dockerfile) does not compile the project: it
 just copies binary built by GoReleaser from the right context.
 
+The container images are now in
+[`dex4er/gocrud`](https://hub.docker.com/r/dex4er/gocrud) repository.
+
 ## Docker Compose
 
 The easiest way to run built application locally. After GoReleaser is used:
