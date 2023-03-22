@@ -1,0 +1,8 @@
+issues:
+  exclude-rules:
+    ## TODO: main.go:44:12: Error return value is not checked (errcheck)
+    ## Maybe initLogger() should not return a value?
+    - path: main.go
+      linters:
+        - errcheck
+      text: Error return value is not checked

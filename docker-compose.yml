@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  gocrud:
+    image: dex4er/gocrud
+    depends_on:
+      - mongo
+    ports:
+      - 8080:8080
+    environment:
+      GOCRUD_MONGO_URI: mongodb://mongo:27017
+
+  mongo:
+    image: mongo:6
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data: {}
