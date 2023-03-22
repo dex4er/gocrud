@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # DevOps changes
 
 Dear developers!

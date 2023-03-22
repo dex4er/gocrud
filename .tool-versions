@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+
 golang 1.20.2
 golangci-lint 1.52.0
 goreleaser 1.16.2
