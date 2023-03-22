@@ -28,6 +28,7 @@ dockers:
       - dex4er/gocrud:{{ .Tag }}{{ if .IsSnapshot }}-snapshot{{ end }}
       - dex4er/gocrud:latest
     dockerfile: Dockerfile
+    skip_push: false
     goos: linux
     goarch: amd64
     build_flag_templates:
